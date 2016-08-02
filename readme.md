@@ -1,7 +1,9 @@
-Password Hash for MyBB
+Better Password Practices for MyBB
 ==========================
 
-This MyBB plugin changes the cryptography method from salted password hashing to bcrypt (via PHP's `password_hash`).
+**Built on the foundation laid by [tommm/password-hash](https://github.com/tommm/password-hash) by Tom Moore**
+
+This MyBB plugin changes the cryptography method from salted password hashing to bcrypt (via PHP's `password_hash`) and disables the utterly moronic method of sending a user's first password via email.
 
 Please don't install this plugin until you have considered the caveats below.
 

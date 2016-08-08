@@ -173,6 +173,16 @@ both=Email Verification & Administrator Activation"
 		rebuild_settings();
 	}
 	
+	// Since we're requiring complex passwords, the min length should already be
+	// considered 8 in the core, so that part is alright. But let's remove the unnecessary
+	// ceiling to the password length, since bcrypt will work with the first 72
+	// characters of input and 72 bytes really isn't all that much data to send.
+	
+	if ($mybb->settings["maxpasswordlength"] < 72) {
+		$db->update_query("settings", ["value" => 72], "name = 'maxpasswordlength'");
+		rebuild_settings();
+	}
+	
 	// redirect back informing the admin of any settings we changed
 	flash_message($lang->pwh_activate_regtype_changed, 'error');
 	admin_redirect('index.php?module=config-plugins');

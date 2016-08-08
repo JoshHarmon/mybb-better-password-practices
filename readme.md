@@ -26,3 +26,12 @@ Usage
 Upload all files and install/activate the plugin via the ACP.
 
 By default, the plugin will convert user passwords to bcrypt the next time users login or change their password. If you would rather users choose a new password, edit ./inc/plugins/psswrd_hsh.php and set `PSSWD_CONV` to `false`.
+
+What It Does
+-----------
+- Converts user passwords to bcrypt automatically upon their next login
+- Requires "complex" passwords
+- Sets the maximum password length to 72 (after which bcrypt will just ignore additional bytes)
+- Removes the "random password" activation setting
+   + Changes it to send the user an activation link
+   + This should cause no disruption to users and it avoids idiotically sending their passwords who-knows-where across the internet in plaintext.

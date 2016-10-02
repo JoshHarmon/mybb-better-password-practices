@@ -160,7 +160,7 @@ function psswrdhsh_activate()
 instant=Instant Activation
 verify=Send Email Verification
 admin=Administrator Activation
-both=Email Verification & Administrator Activation"
+both=Email Verification & Administrator Activation";
 		
 		
 		$db->update_query("settings", ["value" => "verify"], "name = 'regtype'");
@@ -206,7 +206,7 @@ instant=Instant Activation
 verify=Send Email Verification
 randompass=Send Random Password
 admin=Administrator Activation
-both=Email Verification & Administrator Activation"
+both=Email Verification & Administrator Activation";
 
 	$db->update_query("settings", ["optionscode" => $bad_regtypes_optionscode], "name = 'regtype'");
 	rebuild_settings();
